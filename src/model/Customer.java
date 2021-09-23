@@ -28,7 +28,7 @@ public class Customer {
 	}
 
 	public void addElementToWishList(String gameId) {
-		if(gameId!=null) {
+		if(gameId!=null && gameId!="") {
 			wishList.add(gameId);
 		}
 	}
