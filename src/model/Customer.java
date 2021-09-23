@@ -4,31 +4,32 @@ import java.util.ArrayList;
 
 public class Customer {
 	private String id;
-	private ArrayList<String> whisList;
+	private ArrayList<String> wishList;
 	private double spendTime;
+//	private Stack<String> shoppingBasket;
 	
 	
 	public Customer(String id, ArrayList<String> whisList) {
 		this.id = id;
-		this.whisList = whisList;
+		this.wishList = whisList;
 		spendTime = 0;
 	}
 	
 	public Customer() {
 		id = "";
 		spendTime = 0;
-		whisList = new ArrayList<String>();
+		wishList = new ArrayList<String>();
 	}
 	
 	public Customer(String id) {
 		id = "";
 		spendTime = 0;
-		whisList = new ArrayList<String>();
+		wishList = new ArrayList<String>();
 	}
 
 	public void addElementToWishList(String gameId) {
 		if(gameId!=null) {
-			whisList.add(gameId);
+			wishList.add(gameId);
 		}
 	}
 	
@@ -47,21 +48,26 @@ public class Customer {
 	}
 	
 	public void sortWishListBySelection() {
-		for (int i = 0; i < whisList.size()-1; i++)  
+		for (int i = 0; i < wishList.size()-1; i++)  
         {  
             int index = i;  
-            for (int j = i + 1; j < whisList.size(); j++){  
-                if (whisList.get(j).charAt(0) < whisList.get(index).charAt(0)){  
+            for (int j = i + 1; j < wishList.size(); j++){  
+                if (wishList.get(j).charAt(0) < wishList.get(index).charAt(0)){  
                     index = j;//searching for lowest index  
                 }  
             }  
-            String smallerNumber = whisList.get(index);   
-            whisList.set(index, whisList.get(i));
-            whisList.set(i, smallerNumber);
+            String smallerNumber = wishList.get(index);   
+            wishList.set(index, wishList.get(i));
+            wishList.set(i, smallerNumber);
         }  
 	}
 	
 	public void fillShoppingBasket() {
+		if(wishList!=null) {
+			for(int i = 1; i<wishList.size();i++) {
+//				shoppingBasket.push(wishList.get(i-1));
+			}
+		}
 		
 	}
 	
@@ -69,7 +75,7 @@ public class Customer {
 	public String getId() {return id;}
 	public void setId(String id) {this.id = id;}
 
-	public ArrayList<String> getWhisList() {return whisList;}
+	public ArrayList<String> getWhisList() {return wishList;}
 
 	public double getSpendTime() {return spendTime;}
 	public void setSpendTime(double spendTime) {this.spendTime = spendTime;}
