@@ -8,6 +8,7 @@ public class Customer {
 	private double spendTime;
 	private String name;
 //	private Stack<String> shoppingBasket;
+//  private ArrayList<Game> wishList;
 	
 	
 	public Customer(String id, ArrayList<String> whisList, String name) {
@@ -33,7 +34,7 @@ public class Customer {
 	}
 	
 	public Customer(String id) {
-		id = "";
+		this.id = id;
 		spendTime = 0;
 		wishList = new ArrayList<String>();
 		name = "";
@@ -44,7 +45,7 @@ public class Customer {
 			wishList.add(gameId);
 		}
 	}
-	
+		
 	public void sortWishListByInsertion(ArrayList<String> shelfsId) {
 		String auxiliar;
 		int i = 0;
@@ -58,6 +59,7 @@ public class Customer {
 		    ++i;  
 		}
 	}
+
 	
 	public void sortWishListBySelection() {
 		for (int i = 0; i < wishList.size()-1; i++)  
@@ -73,6 +75,8 @@ public class Customer {
             wishList.set(i, smallerNumber);
         }  
 	}
+	
+	
 	
 	public void fillShoppingBasket() {
 		if(wishList!=null) {

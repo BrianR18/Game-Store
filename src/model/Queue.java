@@ -2,7 +2,11 @@ package model;
 
 public class Queue<T> implements IQueue<T> {
 	private QueueNode <T> front;
+	
+	
 
+
+	@Override
 	public void enqueue(T element) {
 		QueueNode<T> elementToAdd = new QueueNode<T>(element);
 		if(front==null) {
