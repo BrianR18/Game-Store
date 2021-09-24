@@ -6,25 +6,37 @@ public class Customer {
 	private String id;
 	private ArrayList<String> wishList;
 	private double spendTime;
+	private String name;
 //	private Stack<String> shoppingBasket;
 	
 	
-	public Customer(String id, ArrayList<String> whisList) {
+	public Customer(String id, ArrayList<String> whisList, String name) {
 		this.id = id;
 		this.wishList = whisList;
 		spendTime = 0;
+		this.name = name;
+	}
+	
+	public Customer(String id, String name, double spendTime, ArrayList<String> whisList) {
+		this.id = id;
+		this.wishList = whisList;;
+		this.spendTime = spendTime;
+		this.name = name;
+		
 	}
 	
 	public Customer() {
 		id = "";
 		spendTime = 0;
 		wishList = new ArrayList<String>();
+		name = "";
 	}
 	
 	public Customer(String id) {
 		id = "";
 		spendTime = 0;
 		wishList = new ArrayList<String>();
+		name = "";
 	}
 
 	public void addElementToWishList(String gameId) {
@@ -33,7 +45,7 @@ public class Customer {
 		}
 	}
 	
-	public static void sortWishListByInsertion(ArrayList<String> shelfsId) {
+	public void sortWishListByInsertion(ArrayList<String> shelfsId) {
 		String auxiliar;
 		int i = 0;
 		int j = 0;
@@ -79,5 +91,10 @@ public class Customer {
 
 	public double getSpendTime() {return spendTime;}
 	public void setSpendTime(double spendTime) {this.spendTime = spendTime;}
+
+	public String getName() {return name;}
+	public void setName(String name) {this.name = name;}
+	
+	
 	
 }
