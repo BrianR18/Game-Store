@@ -35,6 +35,7 @@ public class Queue<T> implements IQueue<T> {
 	public T dequeue() {
 		T element = front.getNode();
 		if(isEmpty()!=true) {
+			front.setNode(null);
 			front = front.getNext();
 		}
 		return element;

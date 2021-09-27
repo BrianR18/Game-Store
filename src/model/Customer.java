@@ -9,8 +9,6 @@ public class Customer {
 	private String name;
 //	private Stack<String> shoppingBasket;
 //  private ArrayList<Game> wishList;
-	
-	
 	public Customer(String id, ArrayList<String> whisList, String name) {
 		this.id = id;
 		this.wishList = whisList;
@@ -78,13 +76,8 @@ public class Customer {
 	
 	
 	
-	public void fillShoppingBasket() {
-		if(wishList!=null) {
-			for(int i = 1; i<wishList.size();i++) {
-//				shoppingBasket.push(wishList.get(i-1));
-			}
-		}
-		
+	public void fillShoppingBasket(Game gameToAdd) {
+//				shoppingBasket.push(gameToAdd);			
 	}
 	
 //*****************************************Setters&Getters******************************
