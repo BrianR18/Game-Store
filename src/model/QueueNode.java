@@ -15,6 +15,6 @@ public class QueueNode <T>{
 	public void setNode(T node) {this.node = node;}
 
 	public QueueNode<T> getNext() {return next;}
-	public void setNext(QueueNode<T> next) {this.next = next;}
+	public void setNext(QueueNode<T> next) {this.next = next;}	
 	
 }
