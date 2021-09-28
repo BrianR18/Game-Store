@@ -31,16 +31,18 @@ public class HashTableNode<K,V>{
 		return next;
 	}
 
-	public void setNext(HashTableNode<K,V> next) {
-		this.next = next;
+	public void setNext(K key, V value) {
+		this.next = new HashTableNode<K,V>(key,value);
 	}
 
 	public HashTableNode<K, V> getPrev() {
 		return prev;
 	}
 
-	public void setPrev(HashTableNode<K,V> prev) {
-		this.prev = prev;
+	public void setPrev(K key, V value) {
+		this.prev = new HashTableNode<K,V>(key,value);
 	}
+	
+	
 	
 }//End HashTableNode
