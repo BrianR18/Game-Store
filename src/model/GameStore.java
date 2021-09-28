@@ -5,13 +5,15 @@ import java.util.ArrayList;
 
 public class GameStore {
 	
-<<<<<<< HEAD
 	private int amountCashier;
 	private HashTable<String,Shelf> shelfs; 
+	private ArrayList<Customer> customers = new ArrayList<>();
+//	private Customer customer;
 	
 	public GameStore(){
 		amountCashier = 1;
 		shelfs = new HashTable<String,Shelf>();
+		customers = new ArrayList<>();
 	}//End GameStore constructor
 
 	public GameStore(int amountCashier){
@@ -49,21 +51,6 @@ public class GameStore {
 			}
 		}//End
 	}//End sortCustomerWishList
-=======
-	private ArrayList<Customer> customers = new ArrayList<>();
-	private ArrayList<Shelf> shelfs = new ArrayList<>();
-	private Customer customer;
-	private int amountCashier;
-	
-	
-
-
-	public GameStore() {
-	
-		customers = new ArrayList<>();
-		amountCashier = 0;
-		shelfs = new ArrayList<>();
-	}
 
 	public Customer searchCustomer(String id) {
 		 for (int i = 0; i < customers.size(); i++) {
@@ -72,29 +59,12 @@ public class GameStore {
 	            }//End if
 	        }//End for
 	        return null;
-	}
-		
+	}	
 	public void addCustomer(Customer customerToAdd) {
 		if(customerToAdd!=null) {
 		customers.add(customerToAdd);
 		}
 	}
-	
-	public void sortCustomersWishList(int sortType) {
-		if(sortType == 1) {
-			customer.sortWishListByInsertion(shelfs);
-		}else {
-			customer.sortWishListBySelection(shelfs);
-		}
-		
-	}
-	
-	public int getAmountCashier() {return amountCashier;}
-	public void setAmountCashier(int amountCashier) {this.amountCashier = amountCashier;}
-
 	public ArrayList<Customer> getCustomers() {return customers;}
-
-	
->>>>>>> Customer&Queue
 	
 }//End GameStore
