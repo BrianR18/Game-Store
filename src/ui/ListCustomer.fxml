@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="216.0" layoutY="448.0" mnemonicParsing="false" onAction="#loadWelcome" prefHeight="31.0" prefWidth="65.0" text="Atras" />
+            <Button layoutX="457.0" layoutY="448.0" mnemonicParsing="false" onAction="#LoadAddCustomer" text="Agregar" />
+            <TableView fx:id="tableCustomers" layoutX="52.0" layoutY="101.0" prefHeight="299.0" prefWidth="636.0">
+               <columns>
+                  <TableColumn fx:id="colCustomerFN" prefWidth="159.0" text="Name" />
+                  <TableColumn fx:id="colCustomerCD" prefWidth="108.0" text="Code" />
+                  <TableColumn fx:id="colCustomerID" prefWidth="108.0" text="Id" />
+                  <TableColumn fx:id="colCustomerLG" prefWidth="260.0" text="Lista de juegos " />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
