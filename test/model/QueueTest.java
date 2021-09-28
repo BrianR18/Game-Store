@@ -14,13 +14,13 @@ class QueueTest {
     }
 
 	@Test
-	<T> void testIsEmpty() {
+	public void testIsEmpty() {
 		boolean test = setupScenary1().isEmpty();
 		assertEquals(true, test);;
 	}
 	
 	@Test
-	void testEnqueue() {
+	public void testEnqueue() {
 		ArrayList<String> wishList = new ArrayList<>();
 		wishList.add("zula");
 		wishList.add("mario bros");
@@ -32,7 +32,7 @@ class QueueTest {
 	}
 	
 	@Test
-	 void testFront() {
+	public void testFront() {
 		
 		String node = "Hi";
 		String node2 = "Hiii";
@@ -45,7 +45,7 @@ class QueueTest {
 	}
 	
 	@Test
-	void testDequeue() {
+	public void testDequeue() {
 		
 		String customer1 = "c1";
 		String customer2 = "c2";

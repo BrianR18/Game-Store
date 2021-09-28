@@ -6,14 +6,15 @@ import org.junit.jupiter.api.Test;
 
 class GameStoreTest {
 
-	public void setupStage1() {
-		
+	public GameStore setupStage1() {
+		GameStore gameStore = new GameStore();
+		return gameStore;
 	}
 	
 	@Test
 	void testSettersAndGetters() {
 		setupStage1();
-		GameStore gameStore = new GameStore();
+		GameStore gameStore = setupStage1();
 		
 		gameStore.setAmountCashier(0);
 		
@@ -24,7 +25,7 @@ class GameStoreTest {
 	@Test
 	void testSearchCustomer() {
 		setupStage1();
-		GameStore gameStore = new GameStore();
+		GameStore gameStore = setupStage1();
 		Customer customerToAdd = new Customer("juan");
 		
 		
@@ -35,7 +36,7 @@ class GameStoreTest {
 	@Test
 	void testAddCustomer() {
 		setupStage1();
-		GameStore gameStore = new GameStore();
+		GameStore gameStore = setupStage1();
 		Customer customerToAdd = new Customer("juan");
 		
 		gameStore.addCustomer(customerToAdd);

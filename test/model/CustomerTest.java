@@ -8,18 +8,30 @@ import org.junit.jupiter.api.Test;
 
 class CustomerTest {
 	
-	public void setupStage1() {
-		
+	public Customer setupStage1() {
+		Customer customer = new Customer();
+		return customer;
 	}
+	
+	public Customer setupStage1(String id, ArrayList<String> wishList, String name) {
+		Customer customer = new Customer(id, wishList , name);
+		return customer;
+	}
+	
+	public Customer setupStage1(String id, String name, double spendTime, ArrayList<String> whisList) {
+		Customer customer = new Customer(id, name,  spendTime, whisList);
+		return customer;
+	}
+	
 
 	@Test
 	void testCustomer() {
-		setupStage1();
 		
 		ArrayList<String> whisList = new ArrayList<>();
 		whisList.add("Fifa21");
 		whisList.add("Far Cry");
-		Customer customerTest = new Customer ("1237", "Juan", 001, whisList);
+		Customer customerTest = setupStage1("1237", "Juan", 001, whisList);
+		
 		
 		assertEquals("1237", customerTest.getId());
 		assertEquals("Juan", customerTest.getName());
@@ -35,7 +47,7 @@ class CustomerTest {
 		ArrayList<String> whisList = new ArrayList<>();
 		whisList.add("Fifa21");
 		whisList.add("Far Cry");
-		Customer customerTest = new Customer (" ", " ", 0 , whisList);
+		Customer customerTest = setupStage1 (" ", " ", 0 , whisList);
 		
 		customerTest.setId("1237");
 		customerTest.setName("Juan");
@@ -52,7 +64,7 @@ class CustomerTest {
 	@Test
 	public void testAddElementToWishList() {
 		
-		Customer customerTest = new Customer();
+		Customer customerTest = setupStage1();
 		customerTest.addElementToWishList("Fifa21");
 		customerTest.addElementToWishList("Far Cry");
 		
@@ -63,41 +75,59 @@ class CustomerTest {
 	@Test 
 	public void testSortWishListByInsertion() {
 		
-		ArrayList<String> shelfsId = new ArrayList<>();
-		shelfsId.add("B");
-		shelfsId.add("C");
-		shelfsId.add("F");
-		shelfsId.add("A");
-		ArrayList<String> shelfsIdWithoutSort = new ArrayList<>();
-		shelfsIdWithoutSort.add("B");
-		shelfsIdWithoutSort.add("C");
-		shelfsIdWithoutSort.add("F");
-		shelfsIdWithoutSort.add("A");
+		Shelf shelf1 = new Shelf("C");
+		Shelf shelf2 = new Shelf("A");
+		Shelf shelf3 = new Shelf("D");
+		ArrayList<Shelf> shelfs = new ArrayList<>();
+		shelfs.add(shelf1);shelfs.add(shelf2);shelfs.add(shelf3);
+		ArrayList<Shelf> shelfsWithoutSort = new ArrayList<>();
+		shelfsWithoutSort.add(shelf1);shelfsWithoutSort.add(shelf2);shelfsWithoutSort.add(shelf3);
+
 		
-		Customer customerTest = new Customer();
+		ArrayList<String> wishList = new ArrayList<>();
+		wishList.add("Fifa21");
+		wishList.add("Far Cry");
+		wishList.add("Gris");
 		
-		customerTest.sortWishListByInsertion(shelfsId);
-		assertNotEquals(shelfsId, shelfsIdWithoutSort);
-		assertNotNull(shelfsId);
-		assertFalse(shelfsId.isEmpty());
-		assertEquals(shelfsId, shelfsId);
+		
+		Customer customerTest =setupStage1("1237", "Juan", 001, wishList);
+		
+		
+		customerTest.sortWishListByInsertion(shelfs);
+		assertNotNull(shelfs);
+		assertFalse(shelfs.isEmpty());
+		assertNotEquals(shelfs, shelfsWithoutSort);
+		
 	}
 	
 	@Test
 	public void testSortWishListBySelection() {
-		ArrayList<String> testWishList = new ArrayList<>();
-		testWishList.add("B -Fifa21");
-		testWishList.add("A -Far Cry");
 		
-		Customer customerTest = new Customer();
+		Shelf shelf1 = new Shelf("C");
+		Shelf shelf2 = new Shelf("A");
+		Shelf shelf3 = new Shelf("D");
+		ArrayList<Shelf> shelfs = new ArrayList<>();
+		shelfs.add(shelf1);shelfs.add(shelf2);shelfs.add(shelf3);
+		ArrayList<Shelf> shelfsWithoutSort = new ArrayList<>();
+		shelfsWithoutSort.add(shelf1);shelfsWithoutSort.add(shelf2);shelfsWithoutSort.add(shelf3);
+		ArrayList<Shelf> shelfsWithSort = new ArrayList<>();
+		shelfsWithSort.add(shelf2);shelfsWithSort.add(shelf1);shelfsWithSort.add(shelf3);
 		
-		customerTest.addElementToWishList("B -Fifa21");
-		customerTest.addElementToWishList("A -Far Cry");
+		ArrayList<String> wishList = new ArrayList<>();
+		wishList.add("Fifa21");
+		wishList.add("Far Cry");
+		wishList.add("Gris");
 		
-		customerTest.sortWishListBySelection();
 		
-		assertNotNull(customerTest.getWhisList());
-		assertNotEquals(testWishList, customerTest.getWhisList());
+		Customer customerTest =setupStage1("1237", "Juan", 001, wishList);
+		
+		
+		customerTest.sortWishListBySelection(shelfs);
+		assertNotNull(shelfs);
+		assertFalse(shelfs.isEmpty());
+		assertEquals(shelfs, shelfsWithSort);
+		assertNotEquals(shelfs, shelfsWithoutSort);
+		
 	}
 
 }
