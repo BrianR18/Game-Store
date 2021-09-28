@@ -9,7 +9,7 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	public HashTable(){
 		nodes = new HashTableNode[ARR_SIZE];
 		Arrays.fill(nodes,null);
-	}
+	}//End HashTable
 
 	@Override
 	public void insert(K key, V value) {
@@ -90,4 +90,26 @@ public class HashTable<K,V> implements IHashTable<K,V>{
 	private int hashFunction(K key){
 		return (key.hashCode() < 0? key.hashCode()*-1:key.hashCode()) % ARR_SIZE;
 	}//End hashFunction
+
+	@Override
+	public String[] getKeys() {
+		String keys = new String();
+		for(int i = 0; i < ARR_SIZE;i++) {
+			if(nodes[i] != null){
+				keys += String.valueOf(nodes[i].getKey()) + " ";
+				if(nodes[i].getNext() != null){
+					keys += getKeys(nodes[i]);
+				}//End if
+			}//End if
+		}//End for
+		return keys.split(" ");
+	}//End getKeys
+	
+	private String getKeys(HashTableNode<K,V> current){
+		String key = new String();
+		if(current.getNext()!=null){
+			key = String.valueOf(current.getNext().getKey()) + " " + getKeys(current.getNext()); 
+		}//End if
+		return key;
+	}//End getKeys
 }

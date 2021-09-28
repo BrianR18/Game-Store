@@ -1,11 +1,11 @@
 package model;
-import java.util.ArrayList;
-
+import Collections.*;
 public class Main {
 	public static void main(String[] args) {
-		ArrayList<Integer> a = new ArrayList<>();
-		System.out.println(a.size());
-		a.set(3, 4);
-		System.out.println(a.size());
+		HashTable<String,Integer> a = new HashTable<String,Integer>();
+		a.insert("Brian", 3);
+		a.insert("Daniel", 4);
+		a.insert("Camilo", 5);
+		System.out.println(a.search("santiago"));
 	}
 }
