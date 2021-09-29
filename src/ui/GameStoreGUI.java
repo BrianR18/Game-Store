@@ -24,7 +24,8 @@ import java.util.Arrays;
 public class GameStoreGUI {
 	
 	private GameStore GameStore;
-	@FXML private ComboBox<String> listEstanterias;
+	@FXML 
+	private ComboBox<String> listEstanterias;
 	
     public GameStoreGUI(GameStore controller) {
     	GameStore = controller;
@@ -90,6 +91,16 @@ public class GameStoreGUI {
 	   ObservableList<String> list = FXCollections.observableList(Arrays.asList(GameStore.getShelfs().getKeys()));
    	   listEstanterias.setItems(list);
    }
+<<<<<<< HEAD
+=======
+
+    //combo box onaction
+    @FXML
+    void select(ActionEvent event) throws Exception {
+    	String string = listEstanterias.getSelectionModel().getSelectedItem().toString();
+    	
+    }
+>>>>>>> master
     
     @FXML
     void estanterias(ActionEvent event)throws Exception {
@@ -138,7 +149,8 @@ public class GameStoreGUI {
 
             alert.showAndWait();
         } else {
-
+        	Customer customerToAdd = new Customer(firstName,id);
+        	
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Cliente creado");
             alert.setHeaderText(null);
@@ -198,6 +210,7 @@ public class GameStoreGUI {
     	String gameName = addGameN.getText();
         String gamePrecio = addGameP.getText();
         String gameCode = addGameCD.getText();
+        String gameShelf = listEstanterias.getAccessibleText();
         //String gameEstanteria = listEstanterias.getText();
         
         if (gameName.isEmpty() || gamePrecio.isEmpty() || gameCode.isEmpty()) {
@@ -208,7 +221,9 @@ public class GameStoreGUI {
 
             alert.showAndWait();
         } else {
-           // GameStore.addCustomers(firstName,code, id);
+        	GameStore gameStore = new GameStore();
+        	
+//        	gameStore.ad
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("juego creado");
             alert.setHeaderText(null);

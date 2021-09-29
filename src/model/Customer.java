@@ -40,6 +40,11 @@ public class Customer {
 		name = "";
 		shoppingBasket = new Stack<>();
 	}
+	
+	public Customer(String name, String id) {
+		wishList = new ArrayList<String>();
+		shoppingBasket = new Stack<>();
+	}
 
 	public void addElementToWishList(String gameId) {
 		if(gameId!=null && gameId!="") {
