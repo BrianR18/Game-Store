@@ -1,11 +1,13 @@
 package model;
-import Collections.*;
+
 public class Main {
 	public static void main(String[] args) {
-		HashTable<String,Integer> a = new HashTable<String,Integer>();
-		a.insert("Brian", 3);
-		a.insert("Daniel", 4);
-		a.insert("Camilo", 5);
-		System.out.println(a.search("santiago"));
+		String[] a;
+		int size = 5;
+		for(int i = 0; i < 5; i++) {
+			size += i;
+			a = new String[size];
+			System.out.println(a.length);
+		}
 	}
 }
