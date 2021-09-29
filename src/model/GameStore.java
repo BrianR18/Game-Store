@@ -99,4 +99,13 @@ public class GameStore {
 	}
 	public ArrayList<Customer> getCustomers() {return customers;}
 	
+	public ArrayList<Game> getGamesFromShelf(){
+		String[] keys = shelfs.getKeys();
+		ArrayList<Game> gms = new ArrayList<>();
+		for(int i = 0; i < keys.length;i++){
+			gms.addAll(shelfs.search(keys[i]).getAllGames());
+		}//End for
+		return gms;
+	}//End getGamesFromShelf
+	
 }//End GameStore
