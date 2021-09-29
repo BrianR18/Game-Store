@@ -27,6 +27,7 @@
                   <TableColumn fx:id="coTableEs" prefWidth="111.0" text="Estanteria" />
               </columns>
             </TableView>
+            <Button layoutX="46.0" layoutY="419.0" mnemonicParsing="false" onAction="#addGamesInWishListCustomer" text="Añadir juego a WishList" />
          </children>
       </AnchorPane>
    </center>
