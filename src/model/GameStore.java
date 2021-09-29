@@ -43,14 +43,13 @@ public class GameStore {
 	
 	public void sortCustomerWishList(int sortType){
 		String[] shelfsKey = shelfs.getKeys();
-		String[] customerCodes;
+		ArrayList<String> customerCodes;
 		String[] gamesShelfs;
 		for(int i = 0; i < customers.size(); i++){
 			//Create a new array with the customer wish list
-			customerCodes = new String[customers.get(i).getWhisList().size()];
-			customers.get(i).getWhisList().toArray(customerCodes);
-			gamesShelfs = new String[customerCodes.length];
-			for(int currentGameCode = 0; currentGameCode < customerCodes.length;currentGameCode++){
+			customerCodes = customers.get(i).getWhisList();
+			gamesShelfs = new String[customerCodes.size()];
+			for(int currentGameCode = 0; currentGameCode < customerCodes.size();currentGameCode++){
 				gamesShelfs[currentGameCode] = getShelfUbication(currentGameCode,shelfsKey,customerCodes);
 			}//End for
 			if(sortType == 1)
@@ -60,17 +59,22 @@ public class GameStore {
 		}//End for
 	}//End sortCustomerWishList
 	
-	private String getShelfUbication(int currentGameCode, String[] shelfsKey,String[] customerCodes){
+	private String getShelfUbication(int currentGameCode, String[] shelfsKey,ArrayList<String> customerCodes){
 		boolean find = false;
 		String shelfId = new String();
 		for(int currentShelf = 0; currentShelf < shelfsKey.length && !find;currentShelf++){
-			if(shelfs.search(shelfsKey[currentShelf]).getGame(customerCodes[currentGameCode]) != null){
+			if(shelfs.search(shelfsKey[currentShelf]).getGame(customerCodes.get(currentGameCode)) != null){
 				shelfId = shelfsKey[currentShelf];
 				find = true;
 			}//End if
 		}//End for
 		return shelfId;
 	}//End getShelfUbication
+	
+	public void fillCustomerShoppingBasket(){
+		String[] keys = shelfs.getKeys();
+		
+	}//End fillCustomerShoppingBasket
 	
 	public Customer searchCustomer(String id) {
 		 for (int i = 0; i < customers.size(); i++) {
