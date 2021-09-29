@@ -43,19 +43,20 @@ public class GameStore {
 	
 	public void sortCustomerWishList(int sortType){
 		String[] shelfsKey = shelfs.getKeys();
-		ArrayList<String> customerCodes;
+		ArrayList<String> customerCodes = new ArrayList<>();
 		String[] gamesShelfs;
-		for(int i = 0; i < customers.size(); i++){
+		for(int i = 0; i < customers.size()-1; i++){
 			//Create a new array with the customer wish list
 			customerCodes = customers.get(i).getWhisList();
 			gamesShelfs = new String[customerCodes.size()];
 			for(int currentGameCode = 0; currentGameCode < customerCodes.size();currentGameCode++){
 				gamesShelfs[currentGameCode] = getShelfUbication(currentGameCode,shelfsKey,customerCodes);
 			}//End for
-			if(sortType == 1)
-				customers.get(i).sortWishListByInsertion(null);
-			else
-				customers.get(i).sortWishListBySelection(null);
+			if(sortType == 1) {
+				customers.get(i).sortWishListByInsertion(gamesShelfs);
+			}else {
+				customers.get(i).sortWishListBySelection(gamesShelfs);
+			}
 		}//End for
 	}//End sortCustomerWishList
 	
@@ -70,6 +71,7 @@ public class GameStore {
 		}//End for
 		return shelfId;
 	}//End getShelfUbication
+	
 	public void fillCustomerShoppingBasket(String id){
 		String[] keys = shelfs.getKeys();
 		Customer currentCustomer = searchCustomer(id);
