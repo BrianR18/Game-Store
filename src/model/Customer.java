@@ -47,46 +47,40 @@ public class Customer {
 		}
 	}
 		
-	public void sortWishListByInsertion(ArrayList<Shelf> shelfsId) {
+	public void sortWishListByInsertion(String[] shelfsId) {
 			String auxiliar;
 			String auxiliar2;
 			int i = 0;
 			int j = 0;
-			while ( i < shelfsId.size() ){
-				auxiliar = shelfsId.get(i).getId();
+			while ( i < shelfsId.length ){
+				auxiliar = shelfsId[i];
 				auxiliar2 = wishList.get(i);
-				for ( j=i ; j>0 && shelfsId.get(j-1).getId().charAt(0) > auxiliar.charAt(0) ; --j ) {
-					shelfsId.set(j, shelfsId.get(j-1));
-					if(wishList.get(j)!=null) {
+				for ( j=i ; j>0 && shelfsId[j-1].charAt(0) > auxiliar.charAt(0) ; --j ) {
+					shelfsId[j] = shelfsId[j-1];
 					wishList.set(j, wishList.get(j-1));
-					}
 				}
-				shelfsId.set(j,shelfsId.get(i));
-				if(auxiliar2 != null) {
+				shelfsId[j] = shelfsId[i];
 				wishList.set(j, auxiliar2);
-				}
 				++i;  
 			}
 	}
 
 	
-	public void sortWishListBySelection(ArrayList<Shelf> shelfsId) {
-		for (int i = 0; i < shelfsId.size()-1; i++){  
+	public void sortWishListBySelection(String[] shelfsId) {
+		for (int i = 0; i < shelfsId.length-1; i++){  
 			int index = i;  
-			for (int j = i + 1; j < shelfsId.size(); j++){  
-				if (shelfsId.get(j).getId().charAt(0) < shelfsId.get(index).getId().charAt(0)){  
+			for (int j = i + 1; j < shelfsId.length; j++){  
+				if (shelfsId[j].charAt(0) < shelfsId[index].charAt(0)){  
 					index = j;  
 				}  
 			}  
-			Shelf smallerNumber2 = shelfsId.get(index);
-			shelfsId.set(index,shelfsId.get(i));
-			shelfsId.set(i, smallerNumber2);
+			String smallerNumber2 = shelfsId[index];
+			shelfsId[index] = shelfsId[i];
+			shelfsId[i] = smallerNumber2;
 			
 			String smallerNumber = wishList.get(index); 
-			if(smallerNumber!=null) {
-				wishList.set(index, wishList.get(i));
-				wishList.set(i, smallerNumber);
-			}	
+			wishList.set(index, wishList.get(i));
+			wishList.set(i, smallerNumber);
 		}  
 	}
 	
