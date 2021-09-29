@@ -75,14 +75,21 @@ class CustomerTest {
 	@Test 
 	public void testSortWishListByInsertion() {
 		
-		Shelf shelf1 = new Shelf("C");
-		Shelf shelf2 = new Shelf("A");
-		Shelf shelf3 = new Shelf("D");
-		ArrayList<Shelf> shelfs = new ArrayList<>();
-		shelfs.add(shelf1);shelfs.add(shelf2);shelfs.add(shelf3);
-		ArrayList<Shelf> shelfsWithoutSort = new ArrayList<>();
-		shelfsWithoutSort.add(shelf1);shelfsWithoutSort.add(shelf2);shelfsWithoutSort.add(shelf3);
-
+		String stringA = "C";
+		String stringB = "A";
+		String stringC = "D";
+		String[] shelfsWithSort = new String[3];
+		shelfsWithSort[0] = stringA;
+		shelfsWithSort[1] = stringB;
+		shelfsWithSort[2] = stringC;
+		String[] shelfsWithoutSort = new String[3];
+		shelfsWithSort[0] = stringA;
+		shelfsWithSort[1] = stringB;
+		shelfsWithSort[2] = stringC;
+		String[] shelfsMediumSort = new String[3];
+		shelfsWithSort[0] = stringB;
+		shelfsWithSort[1] = stringC;
+		shelfsWithSort[2] = stringA;
 		
 		ArrayList<String> wishList = new ArrayList<>();
 		wishList.add("Fifa21");
@@ -93,25 +100,31 @@ class CustomerTest {
 		Customer customerTest =setupStage1("1237", "Juan", 001, wishList);
 		
 		
-		customerTest.sortWishListByInsertion(shelfs);
-		assertNotNull(shelfs);
-		assertFalse(shelfs.isEmpty());
-		assertNotEquals(shelfs, shelfsWithoutSort);
+		customerTest.sortWishListByInsertion(shelfsWithSort);
+		assertNotNull(shelfsWithSort);
+		assertNotEquals(shelfsWithSort, shelfsWithoutSort);
+		assertNotEquals(shelfsMediumSort, shelfsWithSort);
 		
 	}
 	
 	@Test
 	public void testSortWishListBySelection() {
-		
-		Shelf shelf1 = new Shelf("C");
-		Shelf shelf2 = new Shelf("A");
-		Shelf shelf3 = new Shelf("D");
-		ArrayList<Shelf> shelfs = new ArrayList<>();
-		shelfs.add(shelf1);shelfs.add(shelf2);shelfs.add(shelf3);
-		ArrayList<Shelf> shelfsWithoutSort = new ArrayList<>();
-		shelfsWithoutSort.add(shelf1);shelfsWithoutSort.add(shelf2);shelfsWithoutSort.add(shelf3);
-		ArrayList<Shelf> shelfsWithSort = new ArrayList<>();
-		shelfsWithSort.add(shelf2);shelfsWithSort.add(shelf1);shelfsWithSort.add(shelf3);
+
+		String stringA = "C";
+		String stringB = "A";
+		String stringC = "D";
+		String[] shelfsWithSort = new String[3];
+		shelfsWithSort[0] = stringA;
+		shelfsWithSort[1] = stringB;
+		shelfsWithSort[2] = stringC;
+		String[] shelfsWithoutSort = new String[3];
+		shelfsWithSort[0] = stringA;
+		shelfsWithSort[1] = stringB;
+		shelfsWithSort[2] = stringC;
+		String[] shelfsMediumSort = new String[3];
+		shelfsWithSort[0] = stringB;
+		shelfsWithSort[1] = stringC;
+		shelfsWithSort[2] = stringA;
 		
 		ArrayList<String> wishList = new ArrayList<>();
 		wishList.add("Fifa21");
@@ -122,11 +135,10 @@ class CustomerTest {
 		Customer customerTest =setupStage1("1237", "Juan", 001, wishList);
 		
 		
-		customerTest.sortWishListBySelection(shelfs);
-		assertNotNull(shelfs);
-		assertFalse(shelfs.isEmpty());
-		assertEquals(shelfs, shelfsWithSort);
-		assertNotEquals(shelfs, shelfsWithoutSort);
+		customerTest.sortWishListByInsertion(shelfsWithSort);
+		assertNotNull(shelfsWithSort);
+		assertNotEquals(shelfsWithSort, shelfsWithoutSort);
+		assertNotEquals(shelfsMediumSort, shelfsWithSort);
 		
 	}
 
