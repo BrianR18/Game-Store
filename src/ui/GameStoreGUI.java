@@ -72,12 +72,11 @@ public class GameStoreGUI {
     
     @FXML
     void LIstGame(ActionEvent event)throws Exception {
-    	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("list_game.fxml"));
         fxmlLoader.setController(this);
         Parent form = fxmlLoader.load();
         pane.setCenter(form);
-
+        initializeTableViewGame();
     }
 
     @FXML
@@ -88,6 +87,7 @@ public class GameStoreGUI {
         Parent form = fxmlLoader.load();
         pane.setCenter(form);
         loadShelfsId();
+        
     }
     
    public void loadShelfsId(){
@@ -147,6 +147,7 @@ public class GameStoreGUI {
         			Customer customerToAdd = new Customer(id,firstName,Double.parseDouble(code),wishListCustomer);    	
         			GameStore.addCustomer(customerToAdd);
         			Alert alert = new Alert(AlertType.INFORMATION);
+        			wishListCustomer.removeAll(wishListCustomer);
         			alert.setTitle("Cliente creado");
         			alert.setHeaderText(null);
         			alert.setContentText("Se ha creado el nuevo cliente");
@@ -236,16 +237,17 @@ public class GameStoreGUI {
             alert.setTitle("Error de validacion");
             alert.setHeaderText(null);
             alert.setContentText("Debes completar cada campo en el formulario");
+            alert.showAndWait();
 
         } else {
-        	GameStore.getShelf(gameShelf).addGame(gameName, gamePrecio, gameCode);
+        	GameStore.getShelf(gameShelf).addGame(gameName, gamePrecio, Integer.parseInt(gameCode));
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("juego creado");
             alert.setHeaderText(null);
             alert.setContentText("Se ha creado el nuevo juego");
-            
+            alert.showAndWait();
+
         }//End else
-        alert.showAndWait();
     }//End addGameElement
     
     
@@ -309,7 +311,7 @@ public class GameStoreGUI {
         observableList = FXCollections.observableArrayList(GameStore.getGamesFromShelf());
         TableGame.setItems(observableList);
 
-        coTableN.setCellValueFactory(new PropertyValueFactory<Game, String>("Nombre "));
+        coTableN.setCellValueFactory(new PropertyValueFactory<Game, String>("Nombre"));
         coTableP.setCellValueFactory(new PropertyValueFactory<Game, String>("Precio"));
         coTableCD.setCellValueFactory(new PropertyValueFactory<Game, String>("Codigo"));
         coTableEs.setCellValueFactory(new PropertyValueFactory<Game, String>("Estanteria"));
