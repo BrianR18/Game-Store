@@ -21,10 +21,10 @@
             <Button layoutX="623.0" layoutY="381.0" mnemonicParsing="false" onAction="#loadaddGame" text="Añadir" />
             <TableView fx:id="TableGame" layoutX="46.0" layoutY="113.0" prefHeight="287.0" prefWidth="561.0">
               <columns>
-                <TableColumn fx:id="coTableN" prefWidth="151.0" text="Nombre" />
-                <TableColumn fx:id="coTableP" prefWidth="181.0" text="Precio" />
-                  <TableColumn fx:id="coTableR" prefWidth="128.0" text="Rewiew" />
-                  <TableColumn fx:id="coTableCD" prefWidth="100.0" text="Codigo" />
+                <TableColumn fx:id="coTableN" prefWidth="177.0" text="Nombre" />
+                <TableColumn fx:id="coTableP" prefWidth="112.0" text="Precio" />
+                  <TableColumn fx:id="coTableCD" prefWidth="160.0" text="Codigo" />
+                  <TableColumn fx:id="coTableEs" prefWidth="111.0" text="Estanteria" />
               </columns>
             </TableView>
          </children>
