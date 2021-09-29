@@ -190,8 +190,6 @@ public class GameStoreGUI {
     @FXML
     private TextField addGameN;
 
-    
-
     @FXML
     private TextField addGameP;
     
@@ -199,31 +197,28 @@ public class GameStoreGUI {
     void addGameElement(ActionEvent event) throws Exception{
     	
     	String gameName = addGameN.getText();
-        String gamePrecio = addGameP.getText();
+        double gamePrecio = Double.parseDouble(addGameP.getText());
         String gameCode = addGameCD.getText();
-        String gameShelf = listEstanterias.getAccessibleText();
+        String gameShelf = listEstanterias.getValue();
         //String gameEstanteria = listEstanterias.getText();
         
-        if (gameName.isEmpty() || gamePrecio.isEmpty() || gameCode.isEmpty()) {
+        if (gameName.isEmpty() || gamePrecio <= 0 || 
+        	gameCode.isEmpty() || gameShelf == null) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error de validacion");
             alert.setHeaderText(null);
             alert.setContentText("Debes completar cada campo en el formulario");
 
-            alert.showAndWait();
         } else {
-        	GameStore gameStore = new GameStore();
-        	
-//        	gameStore.ad
+        	GameStore.getShelf(gameShelf).addGame(gameName, gamePrecio, gameCode);
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("juego creado");
             alert.setHeaderText(null);
             alert.setContentText("Se ha creado el nuevo juego");
-
-            alert.showAndWait();
-        }
-
-    }
+            
+        }//End else
+        alert.showAndWait();
+    }//End addGameElement
     
     
     //___________tablet customer_________
