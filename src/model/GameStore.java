@@ -1,6 +1,5 @@
 package model;
 import Collections.*;
-
 import java.util.ArrayList;
 
 public class GameStore {
@@ -44,14 +43,35 @@ public class GameStore {
 	
 	public void sortCustomerWishList(int sortType){
 		String[] shelfsKey = shelfs.getKeys();
-		String[] customersWishList = new String[2];
-		for(int i = 0; i < 1; i++){
-			for(int j = 0; j < shelfsKey.length;j++){
-				
-			}
-		}//End
+		String[] customerCodes;
+		String[] gamesShelfs;
+		for(int i = 0; i < customers.size(); i++){
+			//Create a new array with the customer wish list
+			customerCodes = new String[customers.get(i).getWhisList().size()];
+			customers.get(i).getWhisList().toArray(customerCodes);
+			gamesShelfs = new String[customerCodes.length];
+			for(int currentGameCode = 0; currentGameCode < customerCodes.length;currentGameCode++){
+				gamesShelfs[currentGameCode] = getShelfUbication(currentGameCode,shelfsKey,customerCodes);
+			}//End for
+			if(sortType == 1)
+				customers.get(i).sortWishListByInsertion(null);
+			else
+				customers.get(i).sortWishListBySelection(null);
+		}//End for
 	}//End sortCustomerWishList
-
+	
+	private String getShelfUbication(int currentGameCode, String[] shelfsKey,String[] customerCodes){
+		boolean find = false;
+		String shelfId = new String();
+		for(int currentShelf = 0; currentShelf < shelfsKey.length && !find;currentShelf++){
+			if(shelfs.search(shelfsKey[currentShelf]).getGame(customerCodes[currentGameCode]) != null){
+				shelfId = shelfsKey[currentShelf];
+				find = true;
+			}//End if
+		}//End for
+		return shelfId;
+	}//End getShelfUbication
+	
 	public Customer searchCustomer(String id) {
 		 for (int i = 0; i < customers.size(); i++) {
 	            if (customers.get(i).getId().compareTo(id) == 0) {
