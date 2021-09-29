@@ -157,7 +157,8 @@ public class GameStoreGUI {
 
             alert.showAndWait();
         } else {
-
+        	Customer customerToAdd = new Customer(firstName,id);
+        	
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Cliente creado");
             alert.setHeaderText(null);
@@ -217,6 +218,7 @@ public class GameStoreGUI {
     	String gameName = addGameN.getText();
         String gamePrecio = addGameP.getText();
         String gameCode = addGameCD.getText();
+        String gameShelf = listEstanterias.getAccessibleText();
         //String gameEstanteria = listEstanterias.getText();
         
         if (gameName.isEmpty() || gamePrecio.isEmpty() || gameCode.isEmpty()) {
@@ -227,7 +229,9 @@ public class GameStoreGUI {
 
             alert.showAndWait();
         } else {
-           // GameStore.addCustomers(firstName,code, id);
+        	GameStore gameStore = new GameStore();
+        	
+//        	gameStore.ad
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("juego creado");
             alert.setHeaderText(null);
