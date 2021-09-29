@@ -79,54 +79,86 @@ public class GameStoreGUI {
     
     
     
-    @FXML
-    void loadaddGame(ActionEvent event)throws Exception {
-    	
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addGame.fxml"));
-        fxmlLoader.setController(this);
+//    @FXML
+//    void loadaddGame(ActionEvent event)throws Exception {
+//    	
+//    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addGame.fxml"));
+//        fxmlLoader.setController(this);
         
-        ObservableList<String> list = FXCollections.observableArrayList("");
-    	listEstanterias.setItems(list);
-    	
-        Parent form = fxmlLoader.load();
-        pane.setCenter(form);
-
-    }
-    
-    
-    @FXML
-    private ComboBox listEstanterias;
-    //combo box arraulist
-   
-    
-    
-    //combo box onaction
-    @FXML
-    void select(ActionEvent event) throws Exception {
-    	String string = listEstanterias.getSelectionModel().getSelectedItem().toString();
-    	
-    }
-    
-    @FXML
-    void estanterias(ActionEvent event)throws Exception {
-    	
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Estanterias.fxml"));
-        fxmlLoader.setController(this);	
-        Parent form = fxmlLoader.load();
-        pane.setCenter(form);
-        
-    }
-    
-
-    @FXML
-    void addEstanterias(ActionEvent event) throws Exception{
-    	
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addEstanterias.fxml"));
-        fxmlLoader.setController(this);
-        Parent form = fxmlLoader.load();
-        pane.setCenter(form);
-        
-    }
+//<<<<<<< Updated upstream
+//        ObservableList<String> list = FXCollections.observableArrayList("");
+//    	listEstanterias.setItems(list);
+//=======
+////        ObservableList<String> list = FXCollections.observableArrayList("");
+////    	listEstanterias.setItems(list);
+//>>>>>>> Stashed changes
+//    	
+//        Parent form = fxmlLoader.load();
+//        pane.setCenter(form);
+//
+//    }
+//    
+//    
+//<<<<<<< Updated upstream
+//=======
+//    
+//>>>>>>> Stashed changes
+//    @FXML
+//    private ComboBox listEstanterias;
+//    //combo box arraulist
+//   
+//    
+//<<<<<<< Updated upstream
+//    
+//    //combo box onaction
+//    @FXML
+//    void select(ActionEvent event) throws Exception {
+//    	String string = listEstanterias.getSelectionModel().getSelectedItem().toString();
+//    	
+//    }
+//=======
+//    //Combo
+//    //combo box onaction
+////    @FXML
+////    void select(ActionEvent event) throws Exception {
+////    	String string = listEstanterias.getSelectionModel().getSelectedItem().toString();
+////    	
+////    }
+//>>>>>>> Stashed changes
+//    
+//    @FXML
+//    void estanterias(ActionEvent event)throws Exception {
+//    	
+//    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Estanterias.fxml"));
+//        fxmlLoader.setController(this);	
+//        Parent form = fxmlLoader.load();
+//        pane.setCenter(form);
+//        
+//    }
+//    
+//
+//    @FXML
+//    void addEstanterias(ActionEvent event) throws Exception{
+//    	
+//    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addEstanterias.fxml"));
+//        fxmlLoader.setController(this);
+//        
+//	
+//        Parent form = fxmlLoader.load();
+//        pane.setCenter(form);
+//        
+//    }
+//    
+//
+//    @FXML
+//    void addEstanterias(ActionEvent event) throws Exception{
+//    	
+//    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addEstanterias.fxml"));
+//        fxmlLoader.setController(this);
+//        Parent form = fxmlLoader.load();
+//        pane.setCenter(form);
+//        
+//    }
     
     
 //add Customer ________________________
