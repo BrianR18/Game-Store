@@ -20,6 +20,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GameStoreGUI {
@@ -140,14 +142,22 @@ public class GameStoreGUI {
 
             alert.showAndWait();
         } else {
-        	Customer customerToAdd = new Customer(firstName,id);
         	
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Cliente creado");
-            alert.setHeaderText(null);
-            alert.setContentText("Se ha creado el nuevo cliente");
+        	ArrayList<String> codeGame = new ArrayList<>();
+        	codeGame.add(TableGame.getSelectionModel().getSelectedItem().getId());
+        	if(codeGame.size()>0) {
+            	Customer customerToAdd = new Customer(id,firstName,Double.parseDouble(id),codeGame);    	
+        		GameStore gameStore = new GameStore();
+        		gameStore.addCustomer(customerToAdd);
+        		Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Cliente creado");
+                alert.setHeaderText(null);
+                alert.setContentText("Se ha creado el nuevo cliente");
 
-            alert.showAndWait();
+                alert.showAndWait();
+        	}
+            
+        	
         }
     }
     
