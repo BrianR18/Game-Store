@@ -8,6 +8,11 @@ public class Shelf {
 	public Shelf(String id){
 		games = new HashTable<String,Game>();
 	}//End Shelf{
+	
+	public Shelf() {
+		games = new HashTable<String,Game>();
+		id = "";
+	}
 
 	public String getId() {
 		return id;

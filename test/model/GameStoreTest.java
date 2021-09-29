@@ -12,19 +12,27 @@ class GameStoreTest {
 	}
 	
 	@Test
-	void testSettersAndGetters() {
-		setupStage1();
+	public void testAddShelf() {
 		GameStore gameStore = setupStage1();
+		gameStore.addShelf("A");
 		
+		assertNotNull(gameStore.getShelf("A"));
+	}
+	
+	@Test
+	public void testSettersAndGetters() {
+		GameStore gameStore = setupStage1();
+		gameStore.addShelf("A");
 		gameStore.setAmountCashier(0);
 		
+		
 		assertEquals(0, gameStore.getAmountCashier());
+		assertNotNull(gameStore.getShelf("A"));
 		
 	}
 	
 	@Test
-	void testSearchCustomer() {
-		setupStage1();
+	public void testSearchCustomer() {
 		GameStore gameStore = setupStage1();
 		Customer customerToAdd = new Customer("juan");
 		
@@ -34,7 +42,7 @@ class GameStoreTest {
 	}
 	
 	@Test
-	void testAddCustomer() {
+	public void testAddCustomer() {
 		setupStage1();
 		GameStore gameStore = setupStage1();
 		Customer customerToAdd = new Customer("juan");

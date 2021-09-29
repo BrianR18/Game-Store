@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import Collections.Stack;
+
 class StackTest {
 
 	public <T> Stack <T> setupStage1(){

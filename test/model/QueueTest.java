@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import Collections.Queue;
+
 class QueueTest {
 	
 	public <T> Queue<T> setupScenary1() {
@@ -62,8 +64,4 @@ class QueueTest {
 		assertNotEquals(customer1, queue.front());
 		assertNotNull(deletedCustomer);
 	}
-	
-	
-	
-
 }

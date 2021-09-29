@@ -22,17 +22,6 @@ class GameTest {
 		
 	}
 	
-	@Test
-	void testAddGame() {
-		setupStage1();
-		
-		Game gameToAdd = new Game();
-		
-		gameToAdd.addGame();
-		assertNotNull(gameToAdd.getGameToAdd());
-		assertFalse(gameToAdd.getGameToAdd().isEmpty());
-	}
-	
 	@Test 
 	void testSettersAndGetters() {
 		setupStage1();
