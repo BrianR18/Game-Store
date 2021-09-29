@@ -24,7 +24,8 @@ import java.util.Arrays;
 public class GameStoreGUI {
 	
 	private GameStore GameStore;
-	@FXML private ComboBox<String> listEstanterias;
+	@FXML 
+	private ComboBox<String> listEstanterias;
 	
     public GameStoreGUI(GameStore controller) {
     	GameStore = controller;
@@ -91,13 +92,7 @@ public class GameStoreGUI {
 	   ObservableList<String> list = FXCollections.observableList(Arrays.asList(GameStore.getShelfs().getKeys()));
    	   listEstanterias.setItems(list);
    }
-   
-    @FXML
-    private ComboBox listEstanterias;
-    //combo box arraulist
-   
-    
-    
+
     //combo box onaction
     @FXML
     void select(ActionEvent event) throws Exception {

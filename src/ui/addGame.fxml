@@ -37,7 +37,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <ComboBox fx:id="listEstanterias" layoutX="326.0" layoutY="373.0" onAction="#select" prefWidth="150.0" />
+            <ComboBox fx:id="listEstanterias" layoutX="326.0" layoutY="373.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </center>
