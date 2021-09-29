@@ -91,16 +91,6 @@ public class GameStoreGUI {
 	   ObservableList<String> list = FXCollections.observableList(Arrays.asList(GameStore.getShelfs().getKeys()));
    	   listEstanterias.setItems(list);
    }
-<<<<<<< HEAD
-=======
-
-    //combo box onaction
-    @FXML
-    void select(ActionEvent event) throws Exception {
-    	String string = listEstanterias.getSelectionModel().getSelectedItem().toString();
-    	
-    }
->>>>>>> master
     
     @FXML
     void estanterias(ActionEvent event)throws Exception {
