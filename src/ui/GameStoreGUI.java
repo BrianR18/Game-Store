@@ -84,6 +84,10 @@ public class GameStoreGUI {
     	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addGame.fxml"));
         fxmlLoader.setController(this);
+        
+        ObservableList<String> list = FXCollections.observableArrayList("");
+    	listEstanterias.setItems(list);
+    	
         Parent form = fxmlLoader.load();
         pane.setCenter(form);
 
@@ -107,11 +111,7 @@ public class GameStoreGUI {
     void estanterias(ActionEvent event)throws Exception {
     	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Estanterias.fxml"));
-        fxmlLoader.setController(this);
-        
-        ObservableList<String> list = FXCollections.observableArrayList("");
-    	listEstanterias.setItems(list);
-    	
+        fxmlLoader.setController(this);	
         Parent form = fxmlLoader.load();
         pane.setCenter(form);
         
