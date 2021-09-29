@@ -6,11 +6,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import model.GameStore;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -81,15 +84,44 @@ public class GameStoreGUI {
     	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addGame.fxml"));
         fxmlLoader.setController(this);
+        
+        ObservableList<String> list = FXCollections.observableArrayList("");
+    	listEstanterias.setItems(list);
+    	
         Parent form = fxmlLoader.load();
         pane.setCenter(form);
 
+    }
+    
+    
+    @FXML
+    private ComboBox listEstanterias;
+    //combo box arraulist
+   
+    
+    
+    //combo box onaction
+    @FXML
+    void select(ActionEvent event) throws Exception {
+    	String string = listEstanterias.getSelectionModel().getSelectedItem().toString();
+    	
     }
     
     @FXML
     void estanterias(ActionEvent event)throws Exception {
     	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Estanterias.fxml"));
+        fxmlLoader.setController(this);	
+        Parent form = fxmlLoader.load();
+        pane.setCenter(form);
+        
+    }
+    
+
+    @FXML
+    void addEstanterias(ActionEvent event) throws Exception{
+    	
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addEstanterias.fxml"));
         fxmlLoader.setController(this);
         Parent form = fxmlLoader.load();
         pane.setCenter(form);
@@ -133,6 +165,38 @@ public class GameStoreGUI {
         }
     }
     
+    
+    
+    //____________________addestanterias
+    
+    
+    @FXML
+    private TextField addEstanteriaE;
+
+    @FXML
+    void addEstanteriaElement(ActionEvent event)throws Exception{
+    	
+    	String estanteriaName = addEstanteriaE.getText();
+       
+        if (estanteriaName.isEmpty() ) {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Error de validacion");
+            alert.setHeaderText(null);
+            alert.setContentText("Debes completar cada campo en el formulario");
+
+            alert.showAndWait();
+        } else {
+           // GameStore.addCustomers(firstName,code, id);
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("juego creado");
+            alert.setHeaderText(null);
+            alert.setContentText("Se ha creado el nuevo juego");
+
+            alert.showAndWait();
+        }
+
+    }
+    
     //______________________aad game
     @FXML
     private TextField addGameCD;
@@ -140,8 +204,7 @@ public class GameStoreGUI {
     @FXML
     private TextField addGameN;
 
-    @FXML
-    private TextField addGameRW;
+    
 
     @FXML
     private TextField addGameP;
@@ -150,11 +213,11 @@ public class GameStoreGUI {
     void addGameElement(ActionEvent event) throws Exception{
     	
     	String gameName = addGameN.getText();
-        String gameRewiew = addGameRW.getText();
         String gamePrecio = addGameP.getText();
         String gameCode = addGameCD.getText();
+        //String gameEstanteria = listEstanterias.getText();
         
-        if (gameName.isEmpty() || gameRewiew.isEmpty() || gamePrecio.isEmpty() || gameCode.isEmpty()) {
+        if (gameName.isEmpty() || gamePrecio.isEmpty() || gameCode.isEmpty()) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error de validacion");
             alert.setHeaderText(null);
@@ -208,7 +271,9 @@ public class GameStoreGUI {
     
   //___________tablet game_________
     
-   /* @FXML
+   /* 
+     
+    @FXML
     private TableView<Game> TableGame;
 
     @FXML
@@ -218,10 +283,10 @@ public class GameStoreGUI {
     private TableColumn<Game, String> coTableP;
 
     @FXML
-    private TableColumn<Game, String> coTableR;
-
-    @FXML
     private TableColumn<Game, String> coTableCD;
+    
+      @FXML
+    private TableColumn<Game, String> coTableEs;
     
     
  // Table customers
@@ -234,10 +299,18 @@ public class GameStoreGUI {
 
         coTableN.setCellValueFactory(new PropertyValueFactory<Game, String>("Nombre "));
         coTableP.setCellValueFactory(new PropertyValueFactory<Game, String>("Precio"));
-        coTableR.setCellValueFactory(new PropertyValueFactory<Game, String>("Rewiew"));
         coTableCD.setCellValueFactory(new PropertyValueFactory<Game, String>("Codigo"));
-      
+      coTableEs.setCellValueFactory(new PropertyValueFactory<Game, String>("Estanteria"));
     }*/
+    
+    
+    
+    
+    
+    //_______________________________________________________________________________________________________
+    
+    
+    
     
 
 }
