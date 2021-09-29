@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -11,32 +12,32 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#eb7c1b" layoutX="160.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+            <Text fill="#eb7c1b" layoutX="219.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="#eb7c1b" layoutX="160.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo/Rewiew">
+            <Text fill="#eb7c1b" layoutX="236.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fill="#eb7c1b" layoutX="163.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <TextField fx:id="addGameN" layoutX="326.0" layoutY="156.0" />
-            <TextField fx:id="addGameRW" layoutX="326.0" layoutY="208.0" />
-            <TextField fx:id="addGameP" layoutX="326.0" layoutY="263.0" />
+            <TextField fx:id="addGameN" layoutX="326.0" layoutY="219.0" />
+            <TextField fx:id="addGameP" layoutX="326.0" layoutY="269.0" />
             <Button layoutX="574.0" layoutY="246.0" mnemonicParsing="false" onAction="#LIstGame" text="Atras" />
             <Button layoutX="574.0" layoutY="171.0" mnemonicParsing="false" onAction="#addGameElement" text="Guardar " />
-            <Text fill="#eb7c1b" layoutX="163.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code">
+            <Text fill="#eb7c1b" layoutX="241.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <TextField fx:id="addGameCD" layoutX="326.0" layoutY="312.0" />
+            <TextField fx:id="addGameCD" layoutX="326.0" layoutY="319.0" />
+            <Text fill="#eb7c1b" layoutX="134.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elegir estanteria">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="listEstanterias" layoutX="326.0" layoutY="373.0" onAction="#select" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </center>
