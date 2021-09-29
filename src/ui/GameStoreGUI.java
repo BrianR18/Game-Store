@@ -89,17 +89,9 @@ public class GameStoreGUI {
     }
     
    public void loadShelfsId(){
-	   
 	   ObservableList<String> list = FXCollections.observableList(Arrays.asList(GameStore.getShelfs().getKeys()));
    	   listEstanterias.setItems(list);
    }
-
-    //combo box onaction
-    @FXML
-    void select(ActionEvent event) throws Exception {
-    	String string = listEstanterias.getSelectionModel().getSelectedItem().toString();
-    	
-    }
     
     @FXML
     void estanterias(ActionEvent event)throws Exception {
@@ -180,7 +172,7 @@ public class GameStoreGUI {
 
             alert.showAndWait();
         } else {
-           // GameStore.addCustomers(firstName,code, id);
+        	GameStore.addShelf(estanteriaName);
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("juego creado");
             alert.setHeaderText(null);
@@ -189,7 +181,7 @@ public class GameStoreGUI {
             alert.showAndWait();
         }
 
-    }
+    }//End addEstanteriaElement
     
     //______________________aad game
     @FXML
