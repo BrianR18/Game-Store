@@ -70,10 +70,14 @@ public class GameStore {
 		}//End for
 		return shelfId;
 	}//End getShelfUbication
-	
-	public void fillCustomerShoppingBasket(){
+	public void fillCustomerShoppingBasket(String id){
 		String[] keys = shelfs.getKeys();
-		
+		Customer currentCustomer = searchCustomer(id);
+		ArrayList<String> wishList = currentCustomer.getWhisList();
+		for(int i = 0; i < wishList.size();i++){//
+			currentCustomer.fillShoppingBasket(shelfs.search(
+			getShelfUbication(i,keys,wishList)).getGame(wishList.get(i)));
+		}//End for
 	}//End fillCustomerShoppingBasket
 	
 	public Customer searchCustomer(String id) {
