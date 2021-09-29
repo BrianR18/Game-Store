@@ -19,11 +19,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import java.util.Arrays;
 
 public class GameStoreGUI {
 	
 	private GameStore GameStore;
-
+	@FXML private ComboBox<String> listEstanterias;
+	
     public GameStoreGUI(GameStore controller) {
     	GameStore = controller;
     }
@@ -64,10 +66,6 @@ public class GameStoreGUI {
 
     }
     
-    
-    
-    
-    
     @FXML
     void LIstGame(ActionEvent event)throws Exception {
     	
@@ -77,24 +75,23 @@ public class GameStoreGUI {
         pane.setCenter(form);
 
     }
-    
-    
-    
+
     @FXML
     void loadaddGame(ActionEvent event)throws Exception {
     	
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addGame.fxml"));
         fxmlLoader.setController(this);
-        
-        ObservableList<String> list = FXCollections.observableArrayList("");
-    	listEstanterias.setItems(list);
-    	
         Parent form = fxmlLoader.load();
         pane.setCenter(form);
-
+        loadShelfsId();
     }
     
-    
+   public void loadShelfsId(){
+	   
+	   ObservableList<String> list = FXCollections.observableList(Arrays.asList(GameStore.getShelfs().getKeys()));
+   	   listEstanterias.setItems(list);
+   }
+   
     @FXML
     private ComboBox listEstanterias;
     //combo box arraulist
@@ -115,10 +112,8 @@ public class GameStoreGUI {
         fxmlLoader.setController(this);	
         Parent form = fxmlLoader.load();
         pane.setCenter(form);
-        
     }
     
-
     @FXML
     void addEstanterias(ActionEvent event) throws Exception{
     	

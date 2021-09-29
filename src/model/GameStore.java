@@ -19,7 +19,9 @@ public class GameStore {
 		this.amountCashier = amountCashier;
 		shelfs = new HashTable<String,Shelf>();
 	}//End GameStore constructor	
-	
+	public HashTable<String,Shelf> getShelfs(){
+		return shelfs;
+	}
 	public void addShelf(String id){
 		Shelf toAdd = new Shelf(id);
 		shelfs.insert(id, toAdd);
