@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import model.Customer;
 import model.GameStore;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -142,6 +143,7 @@ public class GameStoreGUI {
         String code = createCustomerCD.getText();
         String id = createCustomerID.getText();
         
+        
         if (firstName.isEmpty() || code.isEmpty() || id.isEmpty()) {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error de validacion");
@@ -150,7 +152,7 @@ public class GameStoreGUI {
 
             alert.showAndWait();
         } else {
-           // GameStore.addCustomers(firstName,code, id);
+
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Cliente creado");
             alert.setHeaderText(null);

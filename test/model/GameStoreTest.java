@@ -2,6 +2,8 @@ package model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 class GameStoreTest {
@@ -52,11 +54,32 @@ class GameStoreTest {
 	
 	@Test
 	public void testSortCustomerWishList() {
-		//Invoco clase game
+
 		GameStore gameStore = setupStage1();
-		//Añado shelfs a su arreglo
-		//Añado clientes con sus listas de juegos
-		//Crear un arreglo con ids de shelfs desordenados
+
+		ArrayList<String> wishList = new ArrayList<>();
+		wishList.add("A");
+		wishList.add("C");
+		wishList.add("B");
+		
+		Customer customer = new Customer("id","Janna",155,wishList);
+		Customer customer2 = new Customer("id","Janna",155,wishList);
+		
+		String [] idsShelf = new String [3];
+		idsShelf[0] = "A";
+		idsShelf[1] = "C";
+		idsShelf[2] = "B";
+		
+		gameStore.addShelf("A");
+		gameStore.addShelf("C");
+		gameStore.addShelf("B");
+		gameStore.addCustomer(customer);
+		gameStore.addCustomer(customer2);
+		assertNotEquals(idsShelf, customer.getWhisList());
+	}
+	
+	@Test
+	public void testFillCustomerShoppingBasket() {
 		
 	}
 
