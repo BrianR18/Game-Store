@@ -43,12 +43,21 @@ class GameStoreTest {
 	
 	@Test
 	public void testAddCustomer() {
-		setupStage1();
 		GameStore gameStore = setupStage1();
 		Customer customerToAdd = new Customer("juan");
 		
 		gameStore.addCustomer(customerToAdd);
 		assertNotNull(gameStore.getCustomers());
+	}
+	
+	@Test
+	public void testSortCustomerWishList() {
+		//Invoco clase game
+		GameStore gameStore = setupStage1();
+		//Añado shelfs a su arreglo
+		//Añado clientes con sus listas de juegos
+		//Crear un arreglo con ids de shelfs desordenados
+		
 	}
 
 }
