@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 import model.Customer;
+import model.Game;
 import model.GameStore;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -259,7 +260,7 @@ public class GameStoreGUI {
     
   //___________tablet game_________
     
-   /* 
+   
      
     @FXML
     private TableView<Game> TableGame;
@@ -279,18 +280,18 @@ public class GameStoreGUI {
     
  // Table customers
 
-    @FXML
-    private void initializeTableViewGame() {
-        ObservableList<Game> observableList;
-        observableList = FXCollections.observableArrayList(GameStore.getGame());
-        tableGame.setItems(observableList);
-
-        coTableN.setCellValueFactory(new PropertyValueFactory<Game, String>("Nombre "));
-        coTableP.setCellValueFactory(new PropertyValueFactory<Game, String>("Precio"));
-        coTableCD.setCellValueFactory(new PropertyValueFactory<Game, String>("Codigo"));
-      coTableEs.setCellValueFactory(new PropertyValueFactory<Game, String>("Estanteria"));
-    }*/
-    
+//    @FXML
+//    private void initializeTableViewGame() {
+//        ObservableList<Game> observableList;
+//        observableList = FXCollections.observableArrayList(GameStore.getGame());
+//        tableGame.setItems(observableList);
+//
+//        coTableN.setCellValueFactory(new PropertyValueFactory<Game, String>("Nombre "));
+//        coTableP.setCellValueFactory(new PropertyValueFactory<Game, String>("Precio"));
+//        coTableCD.setCellValueFactory(new PropertyValueFactory<Game, String>("Codigo"));
+//      coTableEs.setCellValueFactory(new PropertyValueFactory<Game, String>("Estanteria"));
+//    }
+//    
     
     
     
