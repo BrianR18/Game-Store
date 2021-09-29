@@ -126,41 +126,59 @@ public class GameStoreGUI {
     @FXML
     private TextField createCustomerFN;
     
+    public ArrayList<String> wishListCustomer = new ArrayList<>();
     @FXML
     void addCustomerElement(ActionEvent event) throws Exception{
     	
     	String firstName = createCustomerFN.getText();
         String code = createCustomerCD.getText();
         String id = createCustomerID.getText();
-        
-        
-        if (firstName.isEmpty() || code.isEmpty() || id.isEmpty()) {
-            Alert alert = new Alert(AlertType.INFORMATION);
+	       
+        if (firstName.isEmpty() || code.isEmpty() || id.isEmpty() ||wishListCustomer.size()==0) {
+            
+        	Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Error de validacion");
             alert.setHeaderText(null);
             alert.setContentText("Debes completar cada campo en el formulario");
 
             alert.showAndWait();
         } else {
-        	
-        	ArrayList<String> codeGame = new ArrayList<>();
-        	codeGame.add(TableGame.getSelectionModel().getSelectedItem().getId());
-        	if(codeGame.size()>0) {
-            	Customer customerToAdd = new Customer(id,firstName,Double.parseDouble(id),codeGame);    	
-        		GameStore gameStore = new GameStore();
-        		gameStore.addCustomer(customerToAdd);
-        		Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Cliente creado");
-                alert.setHeaderText(null);
-                alert.setContentText("Se ha creado el nuevo cliente");
+        		if(wishListCustomer.size()>0 && wishListCustomer!=null) {
+        			Customer customerToAdd = new Customer(id,firstName,Double.parseDouble(code),wishListCustomer);    	
+        			GameStore.addCustomer(customerToAdd);
+        			Alert alert = new Alert(AlertType.INFORMATION);
+        			alert.setTitle("Cliente creado");
+        			alert.setHeaderText(null);
+        			alert.setContentText("Se ha creado el nuevo cliente");
 
-                alert.showAndWait();
+        			alert.showAndWait();
+        		
+        	}else {
+        		Alert alert = new Alert(AlertType.INFORMATION);
+        		alert.setTitle("Error de validacion");
+        		alert.setHeaderText(null);
+        		alert.setContentText("Debes añadir por lo menos un juego");
+        		alert.showAndWait();
         	}
-            
-        	
         }
     }
     
+    @FXML
+    public ArrayList<String> addGamesInWishListCustomer(ActionEvent event) throws Exception{
+    	Game gameToAdd = TableGame.getSelectionModel().getSelectedItem();
+    	if(gameToAdd!=null) {
+    		wishListCustomer.add(TableGame.getSelectionModel().getSelectedItem().getId());
+    		return wishListCustomer;
+    	}else {
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setTitle("Error de validacion");
+    		alert.setHeaderText(null);
+    		alert.setContentText("Debes añadir por lo menos un juego");
+    		alert.showAndWait();
+    	}
+    	return null;
+    }
+
     
     
     //____________________addestanterias
@@ -288,20 +306,20 @@ public class GameStoreGUI {
     private TableColumn<Game, String> coTableEs;
     
     
- // Table customers
+//  Table customers
 
-//    @FXML
-//    private void initializeTableViewGame() {
-//        ObservableList<Game> observableList;
-//        observableList = FXCollections.observableArrayList(GameStore.getGame());
-//        tableGame.setItems(observableList);
-//
-//        coTableN.setCellValueFactory(new PropertyValueFactory<Game, String>("Nombre "));
-//        coTableP.setCellValueFactory(new PropertyValueFactory<Game, String>("Precio"));
-//        coTableCD.setCellValueFactory(new PropertyValueFactory<Game, String>("Codigo"));
-//      coTableEs.setCellValueFactory(new PropertyValueFactory<Game, String>("Estanteria"));
-//    }
-//    
+    @FXML
+    private void initializeTableViewGame() {
+        ObservableList<Game> observableList;
+        observableList = FXCollections.observableArrayList(GameStore.getGamesFromShelf());
+        TableGame.setItems(observableList);
+
+        coTableN.setCellValueFactory(new PropertyValueFactory<Game, String>("Nombre "));
+        coTableP.setCellValueFactory(new PropertyValueFactory<Game, String>("Precio"));
+        coTableCD.setCellValueFactory(new PropertyValueFactory<Game, String>("Codigo"));
+        coTableEs.setCellValueFactory(new PropertyValueFactory<Game, String>("Estanteria"));
+    }
+    
     
     
     

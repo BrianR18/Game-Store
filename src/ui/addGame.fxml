@@ -12,7 +12,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#eb7c1b" layoutX="219.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+            <Text fill="#eb7c1b" layoutX="219.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo">
                <font>
                   <Font size="24.0" />
                </font>
@@ -26,7 +26,7 @@
             <TextField fx:id="addGameP" layoutX="326.0" layoutY="269.0" />
             <Button layoutX="574.0" layoutY="246.0" mnemonicParsing="false" onAction="#LIstGame" text="Atras" />
             <Button layoutX="574.0" layoutY="171.0" mnemonicParsing="false" onAction="#addGameElement" text="Guardar " />
-            <Text fill="#eb7c1b" layoutX="241.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code">
+            <Text fill="#eb7c1b" layoutX="210.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad">
                <font>
                   <Font size="24.0" />
                </font>
